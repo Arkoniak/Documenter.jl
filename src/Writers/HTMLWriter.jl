@@ -435,7 +435,7 @@ struct HTML <: Documenter.Writer
             end
         end
         isa(edit_link, Default) && (edit_link = edit_link[])
-        new(prettyurls, disable_git, edit_link, canonical, siteurl, assets, analytics,
+        new(prettyurls, disable_git, edit_link, canonical, site_url, assets, analytics,
             collapselevel, sidebar_sitename, highlights, mathengine, footer, lang, warn_outdated)
     end
 end
