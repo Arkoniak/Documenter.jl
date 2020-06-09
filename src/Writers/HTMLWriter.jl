@@ -375,6 +375,7 @@ struct HTML <: Documenter.Writer
     disable_git   :: Bool
     edit_link     :: Union{String, Symbol, Nothing}
     canonical     :: Union{String, Nothing}
+    siteurl       :: String
     assets        :: Vector{HTMLAsset}
     analytics     :: String
     collapselevel :: Int
@@ -389,6 +390,7 @@ struct HTML <: Documenter.Writer
             disable_git   :: Bool = false,
             edit_link     :: Union{String, Symbol, Nothing, Default} = Default("master"),
             canonical     :: Union{String, Nothing} = nothing,
+            siteurl       :: String = "",
             assets        :: Vector = String[],
             analytics     :: String = "",
             collapselevel :: Integer = 2,
@@ -425,7 +427,7 @@ struct HTML <: Documenter.Writer
             end
         end
         isa(edit_link, Default) && (edit_link = edit_link[])
-        new(prettyurls, disable_git, edit_link, canonical, assets, analytics,
+        new(prettyurls, disable_git, edit_link, canonical, siteurl, assets, analytics,
             collapselevel, sidebar_sitename, highlights, mathengine, footer, lang)
     end
 end
@@ -946,7 +948,9 @@ function render_sidebar(ctx, navnode)
     # Sitename
     if ctx.settings.sidebar_sitename
         push!(navmenu.nodes, div[".docs-package-name"](
-            span[".docs-autofit"](ctx.doc.user.sitename)
+           span[".docs-autofit"](isempty(ctx.settings.siteurl) ?
+                                    ctx.doc.user.sitename :
+                                    a[:href => ctx.settings.siteurl](ctx.doc.user.sitename))
         ))
     end
 
