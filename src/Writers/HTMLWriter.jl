@@ -929,12 +929,13 @@ function render_sidebar(ctx, navnode)
     src = get_url(ctx, navnode)
     navmenu = nav[".docs-sidebar"]
 
+    # The logo and sitename will point to the first page in the navigation menu
+    href = navhref(ctx, first(ctx.doc.internal.navlist), navnode)
+
     # Logo
     logo = find_image_asset(ctx, "logo")
     logo_dark = find_image_asset(ctx, "logo-dark")
     if logo !== nothing
-        # the logo will point to the first page in the navigation menu
-        href = navhref(ctx, first(ctx.doc.internal.navlist), navnode)
         alt = isempty(ctx.doc.user.sitename) ? "Logo" : "$(ctx.doc.user.sitename) logo"
         logo_element = a[".docs-logo", :href => href]
         if logo_dark === nothing
@@ -949,7 +950,7 @@ function render_sidebar(ctx, navnode)
     if ctx.settings.sidebar_sitename
         push!(navmenu.nodes, div[".docs-package-name"](
            span[".docs-autofit"](isempty(ctx.settings.siteurl) ?
-                                    ctx.doc.user.sitename :
+                                    a[:href => href](ctx.doc.user.sitename) :
                                     a[:href => ctx.settings.siteurl](ctx.doc.user.sitename))
         ))
     end
