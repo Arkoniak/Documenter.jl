@@ -820,6 +820,7 @@
 [github-1559]: https://github.com/JuliaDocs/Documenter.jl/pull/1559
 [github-1561]: https://github.com/JuliaDocs/Documenter.jl/issues/1561
 [github-1567]: https://github.com/JuliaDocs/Documenter.jl/pull/1567
+<<<<<<< HEAD
 [github-1568]: https://github.com/JuliaDocs/Documenter.jl/issues/1568
 [github-1569]: https://github.com/JuliaDocs/Documenter.jl/pull/1569
 [github-1577]: https://github.com/JuliaDocs/Documenter.jl/pull/1577
@@ -829,6 +830,9 @@
 [github-1596]: https://github.com/JuliaDocs/Documenter.jl/pull/1596
 [github-1602]: https://github.com/JuliaDocs/Documenter.jl/issues/1602
 [github-1604]: https://github.com/JuliaDocs/Documenter.jl/pull/1604
+=======
+[github-1577]: https://github.com/JuliaDocs/Documenter.jl/pull/1577
+>>>>>>> Add warning for outdated docs (#1577)
 
 [julia-38079]: https://github.com/JuliaLang/julia/issues/38079
 [julia-39841]: https://github.com/JuliaLang/julia/pull/39841
