@@ -923,13 +923,6 @@ function warning_script(src, ctx)
     return Tag(Symbol("#RAW#"))("")
 end
 
-function warning_script(src, ctx)
-    if ctx.settings.warn_outdated
-        return Tag(:script)[Symbol(OUTDATED_VERSION_ATTR), :src => relhref(src, ctx.warner_js)]()
-    end
-    return Tag(Symbol("#RAW#"))("")
-end
-
 function canonical_link_element(canonical_link, src)
    @tags link
    if canonical_link === nothing
